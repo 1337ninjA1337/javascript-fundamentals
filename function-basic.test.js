@@ -61,15 +61,14 @@ describe("Function basic", () => {
     expect(wrap("a", "b", "c", "d", "e")/* wrap("a", "b", "c", "d", "e") */).toBe("|a|b|c|d|e|");
   });
 
-  test.only("Should use Function as argument", () => {
+  test("Should use Function as argument", () => {
     // Write logCalculationResult function. Function should accept 2 arguments
     // First is calculation function
     // Second is argument for calculation function
     // Return value is message 'Result is ###'
 
-    function logCalculationResult(add10,mul3,func){
-      
-      return ;
+    function logCalculationResult(func,a){
+      return "Result is "+func(a);
     }
 
     function add10(a) {
@@ -80,7 +79,7 @@ describe("Function basic", () => {
       return a * 3;
     }
 
-    expect( /* logCalculationResult(add10, 7) */).toBe("Result is 17");
-    expect(/* logCalculationResult(mul3, 7) */).toBe("Result is 21");
+    expect(logCalculationResult(add10, 7) /* logCalculationResult(add10, 7) */).toBe("Result is 17");
+    expect(logCalculationResult(mul3, 7)/* logCalculationResult(mul3, 7) */).toBe("Result is 21");
   });
 });

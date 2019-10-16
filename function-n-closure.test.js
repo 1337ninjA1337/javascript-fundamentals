@@ -1,3 +1,6 @@
+import { isTerminatorless } from "@babel/types";
+
+
 describe('Function and closure', () => {
   test('Should return  composition of two functions', () => {
     // DON'T CHANGE
@@ -10,29 +13,46 @@ describe('Function and closure', () => {
       return x * 3;
     }
 
-    function compose(){
-        //TODO: implement
+    function compose(n){
+      return add5(mul3(n))
     }
 
     expect( compose(  add5, mul3)(2) ).toBe(add5(mul3(2)));
   });
 
   test('Should create new user with unique number identifier using increment', () => {
-    function createUser(){
-       //TODO: implement
+    let id=1;
+    function createUser(name){
+      
+      
+      let a=(function() {
+          return {
+            name: name, id: id
+          }
+      }());
+      id++;
+      return a;
+      
+      //TODO: implement
     }
     expect( createUser("Ivan") ).toStrictEqual({ name: 'Ivan', id: 1 });
     expect( createUser("Petr").name ).toBe('Petr');
     expect( createUser("Anna").id ).toBe(3);
   });
 
-  test('Should create function that each time return new value incremented by incrementValue and start from start', () => {
+  test.only('Should create function that each time return new value incremented by incrementValue and start from start', () => {
     function createIncrementor(start, incrementValue) {
       // TODO: implement
+      let iter={
+        start: start+=incrementValue, incrementValue: incrementValue
+      }
+      return iter.start;
+      
     }
 
 
-    const nextFrom10By7 = createIncrementor(10, 7);
+    let nextFrom10By7 = createIncrementor(10, 7);
+    
     expect(nextFrom10By7()).toBe(10);
     expect(nextFrom10By7()).toBe(17);
     expect(nextFrom10By7()).toBe(24);
@@ -244,3 +264,5 @@ describe('Function and closure', () => {
     expect(add10(20)).toBe(30);
   });
 });
+
+

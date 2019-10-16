@@ -3,23 +3,39 @@ describe("Numbers", () => {
     const a = 15;
     const b = 10;
 
-    expect(/* ??? */).toBe(5);
-    expect(/* ??? */).toBe(0);
+    expect(a%b/* ??? */).toBe(5);
+    expect(b%b/* ??? */).toBe(0);
   });
 
   test("Should get average of 3 numbers", () => {
+    function average(){
+      let avr=0
+      for(let i=0;i<arguments.length;i++){
+        
+      }  
+      return avr;
+    }
     expect(/* average(2, 4, 6)*/).toBe(4);
     expect(/* average(-5, 12, -7) */).toBe(0);
   });
 
   test("Should get a last digit of the number", () => {
-    expect(/* last(123) */).toBe(3);
-    expect(/* last(3982) */).toBe(2);
+    function last(){return arguments[0]%10;}
+    expect(last(123)/* last(123) */).toBe(3);
+    expect(last(3982)/* last(3982) */).toBe(2);
   });
 
   test("Should sum the digits of a given number", () => {
-    expect(/* sumDigits(123) */).toBe(6);
-    expect(/* sumDigits(53) */).toBe(8);
+      function sumDigits(a){
+        let str=a.toString().split('');
+        let sum=0
+        for (let i=0;i<str.length;i++){
+          sum+=parseInt(str[i], 10);
+        }
+        return sum;
+      }
+    expect(sumDigits(123)/* sumDigits(123) */).toBe(6);
+    expect(sumDigits(53)/* sumDigits(53) */).toBe(8);
   });
 
   test("Should return true if specified number is prime", () => {
@@ -30,7 +46,8 @@ describe("Numbers", () => {
   });
 
   test("Should convert string to number", () => {
-    expect(/* convert('234') */).toBe(234);
+
+    expect(convert('234')/* convert('234') */).toBe(234);
   });
 
   test("Should find highest value", () => {
