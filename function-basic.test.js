@@ -67,8 +67,9 @@ describe("Function basic", () => {
     // Second is argument for calculation function
     // Return value is message 'Result is ###'
 
-    (func(),x =>{
+    function logCalculationResult(add10,mul3,func){
       
+      return ;
     }
 
     function add10(a) {
@@ -79,7 +80,7 @@ describe("Function basic", () => {
       return a * 3;
     }
 
-    expect(/* logCalculationResult(add10, 7) */).toBe("Result is 17");
+    expect( /* logCalculationResult(add10, 7) */).toBe("Result is 17");
     expect(/* logCalculationResult(mul3, 7) */).toBe("Result is 21");
   });
 });
