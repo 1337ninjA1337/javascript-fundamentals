@@ -1,32 +1,69 @@
 describe('Array', () => {
   it('Should find the position of the first occurrence', () => {
     const arr1 = [1, 5, 8, 3, 2];
-    expect(/* Find 5 position*/).toBe(1);
-    expect(/* Find 3 position */).toBe(/* ??? */);
+    expect(arr1.indexOf(5)/* Find 5 position*/).toBe(1);
+    expect(arr1.indexOf(3)/* Find 3 position */).toBe(3/* ??? */);
 
     // TODO: Write additional its
   });
 
   it('Should return the specified array twice', () => {
-    expect(/* double([1, 2, 3])*/).toStrictEqual([1, 2, 3, 1, 2, 3]);
+    function double(arr)
+    {
+      let array=[];
+      for(let i=0;i<arr.length;i++){
+        array[i]=arr[i];
+      }
+      for(let i=0;i<arr.length;i++){
+        array.push(arr[i]);
+      }
+      return array;
+     }
 
+    
+    expect( double([1, 2, 3])/**/).toStrictEqual([1, 2, 3, 1, 2, 3]);
+
+    
     // TODO: Write additional its
   });
 
   it('Convert the number array to  the array of string values', () => {
-    expect(/* convertToStringArr([1, 2, 3]) */).toStrictEqual(['1', '2', '3']);
-
+    expect( convertToStringArr([1, 2, 3]) /* */).toStrictEqual(['1', '2', '3']);
+    function convertToStringArr(arr){
+      
+      for(let i=0;i<arr.length;i++){
+        arr[i].toString;
+      }
+      return arr;
+    }
     // TODO: Write additional its
   });
 
   it('Should return the number of all occurrences of specified item in an array', () => {
-    expect(/* calculateOccurences([1, 2, 1, 4, 1], 1)*/).toBe(3);
+    expect(calculateOccurences([1, 2, 1, 4, 1], 1)/**/).toBe(3);
 
+    function calculateOccurences(arr, x){
+      let iter=0;
+      for(let i=0;i<arr.length;i++){
+        if(arr[i]==x){
+          iter++;
+        }
+      }
+      
+      return iter;
+    }
     // TODO: Write additional its
   });
 
   it('Should convert strings from specified array to uppercase', () => {
-    expect(/* toUppercase(["aaaa", "abc"])*/).toStrictEqual(['AAAA', 'ABC']);
+    expect( toUppercase(["aaaa", "abc"])/**/).toStrictEqual(['AAAA', 'ABC']);
+    function toUppercase(arr){  
+      let array=[];
+      for(let i=0;i<arr.length;i++){
+        array[i]=arr[i].toUpperCase();
+      }
+      return array;
+    }
   });
 
   it('Insert an item at specified position', () => {
